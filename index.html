@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>My webpage!</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
+<head>
     <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 70%;
-		width: 70%;
-        margin: 0;
-        padding: 0;
-      }
+        #map {
+            height: 50%;
+            width: 50%;
+        }
+        
+        html,
+        body {
+            height: 99%;
+        }
     </style>
-  </head>
-  <body>
-	<div id="map"></div>
+</head>
+
+<body>
+    <div id="map"></div>
     <script>
+        var map;
 
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: {lat: -28, lng: 137}
-        });
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 1,
+                center: {
+                    lat: 0,
+                    lng: 0
+                }
+            });
 
-        // NOTE: This uses cross-domain XHR, and may not work on older browsers.
-        map.data.loadGeoJson(
-            'https://storage.googleapis.com/mapsdevsite/json/google.json');
-      }
+            // NOTE: This uses cross-domain XHR, and may not work on older browsers.
+            map.data.loadGeoJson("C:\Users\benel\Documents\GitHub\belfner.github.io\states.json");
+        }
     </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap">
     </script>
-  </body>
+</body>
+
 </html>
