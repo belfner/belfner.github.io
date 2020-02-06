@@ -36,6 +36,11 @@
                 fillColor: 'green',
                 strokeWeight: 1
             });
+			
+			map.data.addListener('mouseover', function(event) {
+			  document.getElementById('info-box').textContent =
+				  event.feature.getProperty('NAME');
+			});
         }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap">
