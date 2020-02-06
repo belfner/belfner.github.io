@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <style>
         #map {
@@ -30,6 +31,11 @@
 
             // NOTE: This uses cross-domain XHR, and may not work on older browsers.
             map.data.loadGeoJson("http://benelfner.com/states.json");
+
+            map.data.setStyle({
+                fillColor: 'green',
+                strokeWeight: 1
+            });
         }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap">
