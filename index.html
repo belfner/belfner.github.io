@@ -61,7 +61,7 @@
 		  // in the geojson feature that was clicked, get the "place" and "mag" attributes
 		  let place = event.feature.getProperty("unit_name");
 		  let magnitude = event.feature.getProperty("unit_type");
-		  let html = magnitude + ' name, ' + place + ' type'; // combine place and magnitude, inserting additional text between them
+		  let html = place + ' name, ' + magnitude + ' type'; // combine place and magnitude, inserting additional text between them
 		  infowindow.setContent(html); // show the html variable in the infowindow
 		  infowindow.setPosition(event.latLng); // anchor the infowindow at the marker
 		  infowindow.setOptions({pixelOffset: new google.maps.Size(0,-30)}); // move the infowindow up slightly to the top of the marker icon
