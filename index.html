@@ -33,14 +33,12 @@
         map.data.loadGeoJson(
             'https://storage.googleapis.com/mapsdevsite/json/google.json');
 			
-		
-		
-      }
-	  
-	  map.data.addListener('mouseover', function(event) {
+		map.data.addListener('mouseover', function(event) {
 		  document.getElementById('info-box').textContent =
 			  event.feature.getProperty('letter');
 		});
+		
+      }
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ-JHIZGqY3S0dHD0oQzDFVlsaG_OSGcs&callback=initMap">
