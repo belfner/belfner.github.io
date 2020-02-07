@@ -40,7 +40,6 @@ For, this tutorial we'll be getting our U.S. state data from the  [US Census Bur
 
 You'll need to unzip the folder of data before moving forward.
 
-
 #### 3. Convert to GEOJSON
 To use this data with Google Maps it will need to be converted from the Shapefile format to the GeoJSON format. To do this you will first need to upload it to [mapshaper.org](https://mapshaper.org/). This gives us an easy method to convert between different geographic data formats. 
 
@@ -48,7 +47,7 @@ To use this data with Google Maps it will need to be converted from the Shapefil
 2. Open the unziped folder with the states data
 3. Select and drag all of the files from your computer and drop them within the mapshaper.org browser window
 4. Click Import
-5. If you did things properly, you should see the map appear. Click on the information icon and hover over a state to make sure that MapShaper has imported the associated data for each state.
+5. If you did things properly, you should see the map appear. Click on the information icon and hover over a state to make sure that MapShaper has imported the associated data for each state
 
 ![](images/import.png)
 
@@ -70,13 +69,13 @@ This will download the data in the GeoJSON format.
 To add the data to the embedded map:
 
 1. Move the downloaded file to your websites folder
-2. Add this line of code to initMap() and replace "PATH" with the path to the geojson file
+2. Add this line of code to initMap() and replace "PATH" with the path to the GeoJSON file
 
 	`map.data.loadGeoJson('PATH');`
 
 	a example of this could be
 
-	`map.data.loadGeoJson('http://example.com/parks.geojson');`
+	`map.data.loadGeoJson('http://example.com/states.json');`
 
 	your code should end up like this
 	
@@ -93,12 +92,12 @@ To add the data to the embedded map:
 						}
 					});
 		`			
-					map.data.loadGeoJson('http://example.com/parks.geojson');
+					map.data.loadGeoJson('http://example.com/states.json');
 				}
 			</script>
 		</div>
 
-	Test this code and you should see the shapes on the map
+Test your website and you should see the shapes on the map
 
 #### 5. Adjust the color of the shapes
 

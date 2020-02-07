@@ -13,7 +13,7 @@ In this tutorial, you will learn about the basics of setting up a new Google Clo
 7. If you have not used Google cloud services before, you can claim $300 of credit. This will require you to enter a credit/debit card. Since the Google Maps API costs money already, it is recommended for you to take the free money. You do this by clicking "ACTIVATE" on the notification at the top right of the website. ![](images/claim_credit_1.png) 
 	###### *Note: If you don't have this notification click the menue button in the top right corner of the screen. Then click billing. When the page loads click "Manage billing accounts. This will bring you to the correct screen
 8. Check the box then click "CONTINUE" ![](images/claim_credit_2.png)
-9. Enter all information. It is up to you to you if you want to enable automatic billing. Click "START MY FREE TRIAL" when done.
+9. Enter all information. It is up to you to you if you want to enable automatic billing. Click "START MY FREE TRIAL" when done
 
 Now you have a new project with billing enabled that is ready to go.
 
