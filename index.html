@@ -5,6 +5,7 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <style>
+      
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
@@ -16,10 +17,21 @@
         margin: 0;
         padding: 0;
       }
+      #info-box {
+        background-color: white;
+        border: 1px solid black;
+        bottom: 30px;
+        height: 20px;
+        padding: 10px;
+        position: absolute;
+        left: 30px;
+      }
+    
     </style>
   </head>
   <body>
     <div id="map"></div>
+	<div id="info-box">g</div>
     <script>
 
       var map;
@@ -45,3 +57,4 @@
     </script>
   </body>
 </html>
+
