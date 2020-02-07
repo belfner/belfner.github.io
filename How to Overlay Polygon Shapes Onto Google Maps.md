@@ -20,18 +20,15 @@ The first step is to embed a basic Goolgle Map application in your website. To d
 12. Needs continuing
 13. .
 14. .
-15. Once back on the main menu, search for "Maps embed API" and click on the corresponding item in the results menu![](images/search_API_services.png)
+15. Once back on the main menu, search for "Maps embed API" and click on the corresponding item in the results menu![](images/search_API.png)
 16. When the page loads, click "Enable"![](images/enable_API.png)
-17. Now search for "APIs & Services" and click on the corresponding item in the results menu![](images/search_API.png)
-18. Click "Credentials" on the left menu
-19. Click "CREATE CREDENTIALS" then click "API key"
-20. It is recommended to restrict your key so it will only work with your website. To do this click "RESTRICT KEY", otherwise skip to step 23
-21. You can rename your key on this page. Under "Application restrictions" click "HTTP referrers", then click "ADD AN ITEM"
-22. Enter your full website domain name then click "Done"
-23. Scroll down and click "Save"
-24. 
-
-
+17. Now search for "APIs & Services" and click on the corresponding item in the results menu![](images/search_API_services.png)
+18. Click "Credentials" on the left menu![](images/credentials.png)
+19. Click "CREATE CREDENTIALS" then click "API key"![](images/create_credentials.png)
+20. It is recommended to restrict your key so it will only work with your website. To do this click "RESTRICT KEY", otherwise skip to the setup![](images/restrict_credentials_1.png)
+21. You can rename your key on this page. Under "Application restrictions" click "HTTP referrers", then click "ADD AN ITEM"![](images/restrict_credentials_2.png)
+22. Enter your full website domain name then click "Done"![](images/restrict_credentials_3.png)
+23. Scroll down and click "Save"![](images/restrict_credentials_4.png)
 
 
 Once this setup is done you can start adding code to your website. The code required is very simple.

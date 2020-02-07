@@ -30,7 +30,7 @@
 				});
 
 				// NOTE: This uses cross-domain XHR, and may not work on older browsers.
-				map.data.loadGeoJson("http://benelfner.com/states.json");
+				map.data.loadGeoJson("http://benelfner.com/google.json");
 
 				map.data.setStyle({
 					fillColor: 'green',
@@ -39,7 +39,7 @@
 				
 				map.data.addListener('mouseover', function(event) {
 				  document.getElementById('info-box').textContent =
-					  event.feature.getProperty('NAME');
+					  event.feature.getProperty('letter');
 				});
 			}
 		</script>
