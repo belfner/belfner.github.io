@@ -6,23 +6,23 @@ In this tutorial, I'll teach you how to overlay polygon shapes onto Google Maps 
 The first step is to embed a basic Goolgle Map application in your website. To do this you must first create a Google Cloud Platform Project. 
 
 
-1. Go to [cloud.google.com](https://cloud.google.com/) and click on "Get Started for Free"
+1. Go to [cloud.google.com](https://cloud.google.com/) and click on "Get Started for Free" 
 2. Log in with your Gmail account
-3. Check I agree and then click on "AGREE AND CONTINUE"
-4. Click "Select a Project" and then "NEW PROJECT" on the pop-up window
-5. Give the project a name then click "CREATE"
-6. Once the project is set up shown by the notification window, click "Select a Project", choose the project you just created
-7. If you have not used Google cloud services before, you can claim $300 of credit. This will require you to enter a credit/debit card. Since the Google Maps API costs money already, it is recommended for you to take the free money. You do this by clicking "ACTIVATE" on the notification at the top right of the website. If you have already accepted this offer  on another project, skip to step 10
-8. Check the box then click "CONTINUE"
+3. Check I agree and then click on "AGREE AND CONTINUE"![](images/welcome.png)
+4. Click "Select a Project" and then "NEW PROJECT" on the pop-up window ![](images/create_project_1.png)
+5. Give the project a name then click "CREATE"![](images/create_project_2.png)
+6. Once the project is set up shown by the notification window, click "Select a Project", choose the project you just created ![](images/create_project_3.png)![](images/select_project.png)
+7. If you have not used Google cloud services before, you can claim $300 of credit. This will require you to enter a credit/debit card. Since the Google Maps API costs money already, it is recommended for you to take the free money. You do this by clicking "ACTIVATE" on the notification at the top right of the website.![](images/claim_credit_1.png) If you have already accepted this offer  on another project, skip to step 10
+8. Check the box then click "CONTINUE"![](images/claim_credit_2.png)
 9. Enter all information. It is up to you to you if you want to enable automatic billing. Click "START MY FREE TRIAL" when done. Skip to step 15
 10. Click billing in the menu on the left of the window
 11. If you already have a billing account, click "Link  a billing account". Otherwise click "Manage billing accounts
 12. Needs continuing
 13. .
 14. .
-15. Once back on the main menu, search for "Maps embed API" and click on the corresponding item in the results menu
-16. When the page loads, click "Enable"
-17. Now search for "APIs & Services" and click on the corresponding item in the results menu
+15. Once back on the main menu, search for "Maps embed API" and click on the corresponding item in the results menu![](images/search_API_services.png)
+16. When the page loads, click "Enable"![](images/enable_API.png)
+17. Now search for "APIs & Services" and click on the corresponding item in the results menu![](images/search_API.png)
 18. Click "Credentials" on the left menu
 19. Click "CREATE CREDENTIALS" then click "API key"
 20. It is recommended to restrict your key so it will only work with your website. To do this click "RESTRICT KEY", otherwise skip to step 23
