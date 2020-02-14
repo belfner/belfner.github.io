@@ -43,7 +43,7 @@
 
         // NOTE: This uses cross-domain XHR, and may not work on older browsers.
         map.data.loadGeoJson(
-            'http://benelfner.com/parks.geojson');
+            'http://benelfner.com/states.geojson');
 			
 		map.data.setStyle({
 		  fillColor: 'green',
