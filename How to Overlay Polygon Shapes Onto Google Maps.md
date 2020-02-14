@@ -98,7 +98,47 @@ To add the data to the embedded map:
 		</div>
 
 Test your website and you should see the shapes on the map
+![](images/basic_map_with_shapes.png)
 
 #### 5. Adjust the color of the shapes
+To customize the formatting of the shapes:
+
+Use this basic outline to add styles
+
+    map.data.setStyle({
+      "style":"value"
+    });
+
+
+Here is an example of what your code could look like
+
+	map.data.setStyle({
+		fillColor: 'green',
+		strokeWeight: 1
+	});
+
+and this would be inserted into your website code like this
+
+	<script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: {lat: 37.0902, lng: -95.7129}
+        });
+
+        // NOTE: This uses cross-domain XHR, and may not work on older browsers.
+        map.data.loadGeoJson(
+            'https://benelfner.com/states.json');
+			
+		map.data.setStyle({
+		  fillColor: 'green',
+		  strokeWeight: 1
+		});
+      }
+    </script>
+			
+
+This will make the map look
 
 #### 6. Make shapes clickable
