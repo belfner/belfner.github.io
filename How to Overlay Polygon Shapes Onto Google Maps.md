@@ -1,15 +1,15 @@
 ## How to Overlay Polygon Shapes Onto Google Maps ##
 
-In this tutorial, I'll teach you how to overlay polygon shapes onto Google Maps and embed it into a website. The example we will use will be to overlay the US census' states data. Data processing will be done with mapshaper.org which you can learn more about [here](https://simplemaps.com/resources/guide-to-mapshaper).
+In this tutorial, I'll teach you how to overlay polygon shapes onto Google Maps and embed it into a website. The example we will use will be to overlay the US census' states data on to a map. Data processing will be done with mapshaper.org which you can learn more about [here](https://simplemaps.com/resources/guide-to-mapshaper).
 
 #### 1. Use the Google Maps JavaScript API to embed a basic map of the US
-The first step is to add a Google Maps JavaScript application in your website. To do this you must first create a Google Cloud Platform Project which you can read about [here](GoogleCloudProjectSetup). (Important) When adding the API use the Maps JavaScript API instead of the Maps embed API.
+The first step is to add a Google Maps JavaScript application in your website. To do this you must first create a Google Cloud Platform Project which you can read about [here](GoogleCloudProjectSetup). (Important!) If you are following the tutorial, when adding the API use the Maps JavaScript API instead of the Maps embed API.
 
 
 
 #### 2. Add application to website
 
-Once this setup is done you can start adding code to your website. The code required is very simple.
+Once this setup is done you can start adding code to your website.
 
 Add these lines into you style section or with your css
 
@@ -17,7 +17,7 @@ Add these lines into you style section or with your css
     	height: 100%;
     }
 
-These lines are optional: Makes the sample page fill the window
+These lines are optional: They make the sample map fill the window if there is nothing else to display besides the map
     
 	html, body {
 	    height: 100%;
@@ -44,11 +44,11 @@ The result should look something like this
 		}
 	</style>
 
-Then insert this lines where ever you want your map to be located on your website
+Then insert these lines where ever you want your map to be located on your website
 
     <div id="map"></div>
 
-Insert this line with the rest of your scripts or if you have none, place it at the bottom of your html section. Replace "YOUR_KEY_HERE" with the key from your project
+Insert this line with the rest of your scripts or if you have none, place it at the bottom of your html section. Replace "YOUR\_KEY_HERE" with the key from your project
 
 	<script>
 		var map;
@@ -68,15 +68,15 @@ Insert this line with the rest of your scripts or if you have none, place it at 
 #### 2. Get data
 Once you have Google Maps embedded into your website, you can add geographic data to it.
 
-For, this tutorial we'll be getting our U.S. state data from the  [US Census Bureau](https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html "census.gov"). A cleaned version has already been preformatted for you to click on and download [here](C:\Users\benel\Documents\GitHub\belfner.github.io\index_files\states.zip "states.zip").
+For, this tutorial we'll be getting our U.S. state data from the  [US Census Bureau](https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html "census.gov"). A cleaned version to use with this tutorial can be downloaded [here](C:\Users\benel\Documents\GitHub\belfner.github.io\index_files\states.zip "states.zip").
 
 You'll need to unzip the folder of data before moving forward.
 
 #### 3. Convert to GEOJSON
-To use this data with Google Maps it will need to be converted from the Shapefile format to the GeoJSON format. To do this you will first need to upload it to [mapshaper.org](https://mapshaper.org/). This gives us an easy method to convert between different geographic data formats. 
+To use this data with Google Maps it will need to be converted from the Shapefile format to the GeoJSON format. To do this you will first need to upload it to [mapshaper.org](https://mapshaper.org/). This tool gives us an easy method to convert between different geographic data file formats. 
 
 1. Go to [mapshaper.org](https://mapshaper.org/)
-2. Open the unziped folder with the states data
+2. Open the unzipped folder that contains the states data
 3. Select and drag all of the files from your computer and drop them within the mapshaper.org browser window
 4. Click Import
 5. If you did things properly, you should see the map appear. Click on the information icon and hover over a state to make sure that MapShaper has imported the associated data for each state
@@ -198,6 +198,43 @@ The text you want to display needs to be put in the html variable. To get inform
 
 An example
 
-	let state = event.feature.getProperty("unit_type");
-	let html = 'State: ' + state; // combine state name with a label	
-	  
+	let state = event.feature.getProperty("NAME");
+	let html = 'State: ' + state; // combine state name with a label
+
+This code gets the 'NAME' attribute from the shape that is clicked on and then sets the state variable to that name. Then the name is combined with the string 'State: ' and then it is saved into the html variable. An example of the text that could be stored is 'State: Montana'. When this code is combined with the code above it the script section should look like this.
+
+	<script>
+
+		  var map;
+		  function initMap() {
+			map = new google.maps.Map(document.getElementById('map'), {
+			  zoom: 4,
+			  center: {lat: 37.0902, lng: -95.7129}
+			});
+
+			// NOTE: This uses cross-domain XHR, and may not work on older browsers.
+			map.data.loadGeoJson(
+				'https://benelfner.com/states.json');
+				
+			map.data.setStyle({
+			  fillColor: 'green',
+			  strokeWeight: 1
+			});
+				
+			
+			var infowindow = new google.maps.InfoWindow();
+			
+			map.data.addListener('click', function(event) {
+			  let state = event.feature.getProperty("NAME");
+			  let html = 'State: ' + state; // combine state name with a label
+			  infowindow.setContent(html); // show the html variable in the infowindow
+			  infowindow.setPosition(event.latLng); // anchor the infowindow at the marker
+			  infowindow.setOptions({pixelOffset: new google.maps.Size(0,-30)}); // move the infowindow up slightly to the top of the marker icon
+			  infowindow.open(map);
+			});
+			
+		  }
+	</script>
+
+This code should result in the online maps displaying text when a shape is clicked on like this
+![](images/showing_labels.png)
