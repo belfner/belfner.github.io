@@ -11,26 +11,58 @@ The first step is to add a Google Maps JavaScript application in your website. T
 
 Once this setup is done you can start adding code to your website. The code required is very simple.
 
-Insert these lines where ever you want your map to be located on your website
+Add these lines into you style section or with your css
 
-    <div id="map">
-		<script>
-			var map;
+    #map {
+    	height: 100%;
+    }
 
-			function initMap() {
-				map = new google.maps.Map(document.getElementById('map'), {
-					zoom: 3,
-					center: {
-						lat: 39.8283,
-						lng: -98.5795
-					}
-				});
-			}
-		</script>
-	</div>
+These lines are optional: Makes the sample page fill the window
+    
+	html, body {
+	    height: 100%;
+	    margin: 0;
+	    padding: 0;
+    }
+
+If you don't have a style section add these lines then insert the above code inside it
+
+	<style>
+	</style>
+
+The result should look something like this
+
+    <style>
+		#map {
+		height: 100%;
+		}
+		/* Optional: Makes the sample page fill the window. */
+		html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		}
+	</style>
+
+Then insert this lines where ever you want your map to be located on your website
+
+    <div id="map"></div>
 
 Insert this line with the rest of your scripts or if you have none, place it at the bottom of your html section. Replace "YOUR_KEY_HERE" with the key from your project
 
+	<script>
+		var map;
+
+		function initMap() {
+			map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 3,
+				center: {
+					lat: 39.8283,
+					lng: -98.5795
+				}
+			});
+		}
+	</script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE&callback=initMap" type="text/javascript"></script>
 
 #### 2. Get data
@@ -140,5 +172,6 @@ and this would be inserted into your website code like this
 			
 
 This will make the map look
+![](images/colored_map.png)
 
 #### 6. Make shapes clickable
