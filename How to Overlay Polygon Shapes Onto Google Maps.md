@@ -100,8 +100,8 @@ This will download the data in the GeoJSON format.
 
 To add the data to the embedded map:
 
-1. Move the downloaded file to your websites folder
-2. Add this line of code to initMap() and replace "PATH" with the path to the GeoJSON file
+1. Upload the downloaded file to your website
+2. Add this line of code to initMap() and replace "PATH" with the path to the GeoJSON file on your website
 
 	`map.data.loadGeoJson('PATH');`
 
@@ -149,7 +149,7 @@ Here is an example of what your code could look like
 		strokeWeight: 1
 	});
 
-and this would be inserted into your website code like this
+and this would be inserted into your website code in the initMap() function like this
 
 	<script>
       var map;
@@ -171,7 +171,33 @@ and this would be inserted into your website code like this
     </script>
 			
 
-This will make the map look
+This will make the map look like this
 ![](images/colored_map.png)
 
 #### 6. Make shapes clickable
+
+Finally, to display information when clicking on a shape a few more lines will be added
+
+First add this line in the initMap() function
+
+    var infowindow = new google.maps.InfoWindow();
+
+Now you need to create a custom feature where you can choose what will be displayed on a click. The basic outline will look like this. 
+
+	map.data.addListener('click', function(event) {
+	  ...
+	  infowindow.setContent(html); // show the html variable in the infowindow
+	  infowindow.setPosition(event.latLng); // anchor the infowindow at the marker
+	  infowindow.setOptions({pixelOffset: new google.maps.Size(0,-30)}); // moves the infowindow up slightly to the top of the marker icon
+	  infowindow.open(map);
+	});
+
+The text you want to display needs to be put in the html variable. To get information from the shape that was clicked on you need to specify the name of the attribute you want in this line of code
+
+	event.feature.getProperty("...");
+
+An example
+
+	let state = event.feature.getProperty("unit_type");
+	let html = 'State: ' + state; // combine state name with a label	
+	  
